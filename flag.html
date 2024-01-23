@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jai Shree Raam</title>
+</head>
+
+
+<body>
+    <style>
+        .top {
+            position: relative;
+            height: 500px;
+            margin-bottom: 50px;
+        }
+
+        .sunElement {
+            position: absolute;
+            height: 100px;
+            width: 100px;
+            top: 100px;
+            left: 30%;
+            border-radius: 50%;
+            background: yellow;
+            border: 20px solid rgba(255, 255, 255, 0.5);
+            box-shadow: 0px 0px 0px 20px rgba(248, 238, 174, 0.3);
+        }
+
+        .flag {
+            position: absolute;
+            width: 300px;
+            height: 200px;
+            top: 70px;
+            left: 52.5%;
+            z-index: 999;
+        }
+
+        .flag_holder {
+            height: 450px;
+            width: 10px;
+            position: fixed;
+            top: 90px;
+            left: 52.5%;
+            z-index: 3;
+            background: rgb(36, 0, 0);
+
+        }
+
+        .flag_element {
+            animation: waving_effect 1s ease-in-out infinite alternate;
+            background: url('https://d22ueo28hfk252.cloudfront.net/Content/versioned/2.0.0.1/images/version4/promotion_january_24/zenrik_images/IMG_20240122_220919-17059417239184.png?v=1705941724');
+            background-size: 300px 100%;
+            position: relative;
+            height: 100%;
+            width: 1px;
+            display: inline-block;
+        }
+
+        .flag_element:nth-child(11) {
+            width: 0px;
+            border-right: 1px dashed #666;
+        }
+
+        .temple {
+            width: 100%;
+            margin-top: -600px;
+
+        }
+
+
+        @keyframes waving_effect {
+            0% {
+                top: 5%;
+            }
+
+            100% {
+                top: -5%;
+            }
+        }
+
+        body {
+            background: rgb(131, 58, 180);
+            background: linear-gradient(90deg, rgb(132 58 179) 90%, rgba(253, 29, 29, 1)85%, rgba(131, 58, 180, 1) 0%);
+        }
+    </style>
+    <div class="top"></div>
+    <div class="sunElement"></div>
+    <div class='flag'>
+    </div>
+    <div class="flag_holder">
+    </div>
+
+    <img src="https://i.ibb.co/MPGw7kn/IMG-20240122-222650.jpg" alt="" class="temple">
+
+
+    <script>
+
+        function animateFlag() {
+
+            let flag = document.querySelector('.flag');
+            let flagWidth = flag.clientWidth;
+
+            for (let i = 0; i < flagWidth; i++) {
+                let flagElement = document.createElement('div');
+                flagElement.className = 'flag_element';
+
+                let backgroundPosition = -i + 'px 0';
+                let animationDelay = i * 10 + 'ms';
+
+                flagElement.style.backgroundPosition = backgroundPosition;
+                flagElement.style.animationDelay = animationDelay;
+
+                flag.appendChild(flagElement);
+            }
+        }
+        animateFlag();
+
+    </script>
+
+</body>
+
+</html>
